@@ -56,17 +56,26 @@ $(".choice").on("click", function() {
   //Retrieve the attribute of data-place for the button pushed
   const place = $(this).attr("data-place");
   const apikey =  "&api_key=3bCo19ThIMVPxPyB6WKeiwD05PgMMyNB"
-  const queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-  place + apikey;
+  const limit = "&limit=10"
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+  place + "&api_key=dc6zaTOxFJmzC&limit=10" ;
   
 
   //Fire of a request to giphy api
-  $ajax({
+  $.ajax({
     url: queryURL,
     method:"GET"
   })
     .then(function(response){//after a response from giphy do something with the respnse
-      var results = response.data;
+      var result = response.data;
+      console.log(result)
+      //for each of the ten results in response back from giphy
+      // for(var i=0; i<results.length;i++){
+      //   if(results[i].rating !== "r"){
+
+      //   }
+
+      // }
 
 
       });
