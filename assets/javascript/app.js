@@ -3,16 +3,31 @@
 //I need to be able to add more buttons and those buttons 
 //should go through the same process and generate dynamically
 //Create an array to add items
-var items = ["japan","morracco","egypt","tibet"]
+var places = ["japan","morracco","egypt","tibet"]
 
 //Add attributes to get a value to call against//
-//Add classes to select 
-var btn = $("<button>")
+ 
+
+
+//Render Buttons //Add classes and attributes
+for(i=0; i< places.length; i++){
+  let $btn = $("<button>")
+  $btn.addClass("btn btn-info btn-lg" );
+  $btn.attr("type", "submit");
+  $btn.attr("data-place",places[i])
+  $btn.text(places[i]);
+  $("#btn-go-here").append($btn);  
+};
+
+
+
+   
 
 
 //Render Divs with classes
-for(let i=0; i<items.length;i++){
-}
+// for(let i=0; i<items.length;i++){
+   
+// }
   //Link those items to the page with a data-img on an attribute
   //From that data value add to paramenter for giphy to return images
   //Make Div for buttons
