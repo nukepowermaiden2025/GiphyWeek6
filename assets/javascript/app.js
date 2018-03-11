@@ -17,9 +17,9 @@ var destination;
 
    //Render Buttons //Add classes and attributes
     for(i=0; i< places.length; i++){
-      // $("#btn-go-here").empty()//clear previous buttons from div
+    
       let $btn = $("<button>")
-      $btn.addClass("btn btn-info btn-lg" );
+      $btn.addClass("btn btn-success btn-lg choice" );
       $btn.attr({//Link those items to the page with a data-img on an attribute
                   type: "submit", 
                   "data-place":places[i],
@@ -35,24 +35,45 @@ var destination;
 
 $(document).on("click", "#add-to-places", function (event) {
   event.preventDefault();
-  destination=$("#destination").val().trim();
+  destination=$("#destination").val().trim().toLowercase();
 
-    if(destination in places ){
+    if(destination in places ){//troubeshoot error catching
     alert("You already went there")
     }
     else{
       places.push(destination);
     }
-  
-  
   console.log(destination);
   console.log(places);
   renderButtons();
   
 });
 
-//Add an event that listens for clicks on the transport button
-// $(document).on("click", "#add-to-places");
+
+
+//Add onclick for buttons to make an ajax call
+$(".choice").on("click", function() {
+  //Retrieve the attribute of data-place for the button pushed
+  const place = $(this).attr("data-place");
+  const apikey =  "&api_key=3bCo19ThIMVPxPyB6WKeiwD05PgMMyNB"
+  const queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+  place + apikey;
+  
+
+  //Fire of a request to giphy api
+  $ajax({
+    url: queryURL,
+    method:"GET"
+  })
+    .then(function(response){//after a response from giphy do something with the respnse
+      var results = response.data;
+
+
+      });
+
+  
+
+});
 
 
 

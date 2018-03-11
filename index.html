@@ -1,60 +1,83 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Giphy Magic</title>
-  </head>
-  <body>
-       
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-         
-        <form>
-            <div class="row">
-              <div class="md-col-6">
-                <input type="text" class="form-control" id="destination" placeholder=" Add Destination Here">
-              <hr>
-              <div class="md-col-6">
-                <p class="lead">
-                    <a class="btn btn-success btn-lg" id="add-to-places" $(href="#" role="button">Transport</a>
-                </p>
-                </div>
-              </div>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+  <title>Giphy Magic</title>
+</head>
+
+<body>
+
+  <div class="jumbotron jumbotron-fluid" style = "background-image: url(./assets/images/globe.jpg) " >
+    <div class="container">
+
+      <div class="jumbotron"  >
+        <div class="row">
+          <div class="md-col-12">
+            <h1 class="text-center display-4">Hey Nomand, Where To?</h1>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="md-5">
+            <input type="text" class="form-control" id="destination" placeholder=" Add Destination Here">
+          </div>
+          <div class="md-col-2">
+            <p class="lead"></p>
+          </div>
+          <div class="md-col-5">
+            <p class="lead">
+              <a class="btn btn-success btn-md" id="add-to-places" href="#" role="submit">Teleport!</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="md-col-12">
+            <div id="btn-go-here">
             </div>
-          </form>
-   
+          </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="md-col-12" style= "opacity:none">
+              <div id="gifs-go-here">Current Country Goes here</div>
+              <img src="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-still="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif"
+                data-animate="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200.gif" data-state="still" class="gif">
+              <img src="https://media2.giphy.com/media/8rFQp4kHXJ0gU/200_s.gif" data-still="https://media2.giphy.com/media/8rFQp4kHXJ0gU/200_s.gif"
+                data-animate="https://media2.giphy.com/media/8rFQp4kHXJ0gU/200.gif" data-state="still" class="gif">
+              <img src="https://media3.giphy.com/media/W6LbnBigDe4ZG/200_s.gif" data-still="https://media3.giphy.com/media/W6LbnBigDe4ZG/200_s.gif"
+                data-animate="https://media3.giphy.com/media/W6LbnBigDe4ZG/200.gif" data-state="still" class="gif">
+            </div>
+          </div>
 
-          <div class="row">
-              <div class="md-col-4">
-                <div class="jumbotron">
-                  <div id="btn-go-here">
 
-                  </div>
 
-                  <h1 class="display-4">Hey Global Nomand, Where To?</h1>
-              </divs>
-
-              <div class="md-col-8">
-                <div id="gifs-go-here">Have a nice trip!</div>    
-                    <img src="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-still="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-animate="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200.gif" data-state="still" class="gif">
-                    <img src="https://media2.giphy.com/media/8rFQp4kHXJ0gU/200_s.gif" data-still="https://media2.giphy.com/media/8rFQp4kHXJ0gU/200_s.gif" data-animate="https://media2.giphy.com/media/8rFQp4kHXJ0gU/200.gif" data-state="still" class="gif">
-                    <img src="https://media3.giphy.com/media/W6LbnBigDe4ZG/200_s.gif" data-still="https://media3.giphy.com/media/W6LbnBigDe4ZG/200_s.gif" data-animate="https://media3.giphy.com/media/W6LbnBigDe4ZG/200.gif" data-state="still" class="gif">
-              </div>
       </div>
-    </div>    
- 
+      
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="./assets/javascript/app.js"></script>
-  </body>
+
+    </div>
+  </div>
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="./assets/javascript/app.js"></script>
+</body>
+
 </html>
