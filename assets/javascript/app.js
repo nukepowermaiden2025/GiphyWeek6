@@ -2,36 +2,68 @@
 //to the giphy api and return 10 pictures that pertain to the subject of the button.
 //I need to be able to add more buttons and those buttons 
 //should go through the same process and generate dynamically
+
 //Create an array to add items
-var places = ["japan","morracco","egypt","tibet"]
 
-//Add attributes to get a value to call against//
- 
-
-
-//Render Buttons //Add classes and attributes
-for(i=0; i< places.length; i++){
-  let $btn = $("<button>")
-  $btn.addClass("btn btn-info btn-lg" );
-  $btn.attr("type", "submit");
-  $btn.attr("data-place",places[i])
-  $btn.text(places[i]);
-  $("#btn-go-here").append($btn);  
-};
+var places =["japan","morracco","egypt","tibet"];
+var destination;
 
 
 
-   
+
+ function renderButtons(){
+
+  $("#btn-go-here").empty();//clear previous buttons from div
+
+   //Render Buttons //Add classes and attributes
+    for(i=0; i< places.length; i++){
+      // $("#btn-go-here").empty()//clear previous buttons from div
+      let $btn = $("<button>")
+      $btn.addClass("btn btn-info btn-lg" );
+      $btn.attr({//Link those items to the page with a data-img on an attribute
+                  type: "submit", 
+                  "data-place":places[i],
+                  state:"data-state",
+                  });
+      $btn.text(places[i]);
+      $("#btn-go-here").append($btn);  
+    }
+ };
 
 
-//Render Divs with classes
-// for(let i=0; i<items.length;i++){
-   
-// }
-  //Link those items to the page with a data-img on an attribute
+ renderButtons();
+
+$(document).on("click", "#add-to-places", function (event) {
+  event.preventDefault();
+  destination=$("#destination").val().trim();
+
+    if(destination in places ){
+    alert("You already went there")
+    }
+    else{
+      places.push(destination);
+    }
+  
+  
+  console.log(destination);
+  console.log(places);
+  renderButtons();
+  
+});
+
+//Add an event that listens for clicks on the transport button
+// $(document).on("click", "#add-to-places");
+
+
+
+
+
+
+
+
+  
   //From that data value add to paramenter for giphy to return images
-  //Make Div for buttons
-  //Make form input box
+
   //Make button to add more items
 
 
