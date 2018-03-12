@@ -1,0 +1,9 @@
+body{
+    max-width: 1068;
+}
+
+.gifdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

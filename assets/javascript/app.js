@@ -5,7 +5,7 @@
 
 //Create an array to add items
 
-var places =["japan","morracco","egypt","tibet"];
+var places =["australia","antartica","brazil","canada","germany","malawi"];
 var destination;
 
 
@@ -23,7 +23,7 @@ var destination;
       $btn.attr({//Link those items to the page with a data-img on an attribute
                   type: "submit", 
                   "data-place":places[i],
-                  state:"data-state",
+                  
                   });
       $btn.text(places[i]);
       $("#btn-go-here").append($btn);  
@@ -35,7 +35,7 @@ var destination;
 
 $(document).on("click", "#add-to-places", function (event) {
   event.preventDefault();
-  destination=$("#destination").val().trim().toLowercase();
+  destination=$("#destination").val().trim();
 
     if(destination in places ){//troubeshoot error catching
     alert("You already went there")
@@ -52,13 +52,13 @@ $(document).on("click", "#add-to-places", function (event) {
 
 
 //Add onclick for buttons to make an ajax call
-$(".choice").on("click", function() {
+$(document).on("click",".choice", function(event) {
+ 
   //Retrieve the attribute of data-place for the button pushed
   const place = $(this).attr("data-place");
-  const apikey =  "&api_key=3bCo19ThIMVPxPyB6WKeiwD05PgMMyNB"
-  const limit = "&limit=10"
+  const apikey =  "&api_key=3bCo19ThIMVPxPyB6WKeiwD05PgMMyNB&limit=10"
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-  place + "&api_key=dc6zaTOxFJmzC&limit=10" ;
+  place + apikey ;
   
 
   //Fire of a request to giphy api
@@ -67,18 +67,30 @@ $(".choice").on("click", function() {
     method:"GET"
   })
     .then(function(response){//after a response from giphy do something with the respnse
-      var result = response.data;
-      console.log(result)
-      //for each of the ten results in response back from giphy
-      // for(var i=0; i<results.length;i++){
-      //   if(results[i].rating !== "r"){
+      var results = response.data;//convience 
+      console.log(results)
+      // With each of the max ten results in response back from giphy
+      for(var i=0; i<results.length;i++){
+        if(results[i].rating !== "r" && results[i].rating !== "pg-13"){
+          var placeimg = $("<img>");//create img
+          placeimg.attr({//Link those items to the page with a data-img on an attribute
+            "data-animate":results[i].images.fixed_height.url,//add animate
+            "data-still": results[i].images.fixed_height_still.url,//add the still 
+            state:"data-state",
+            src:"",
+            width: 400,
+            height: 175,
+            "margin-left": 5,
+            "margin-right":5,
+            "margin-top":10
+          });
+          $(placeimg).attr("src", results[i].images.fixed_height.url);
+          $("#gifdiv").prepend(placeimg)
+          renderButtons();
 
-      //   }
-
-      // }
-
-
-      });
+        }
+      }
+    });
 
   
 
