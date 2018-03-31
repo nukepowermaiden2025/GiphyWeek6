@@ -53,6 +53,9 @@ $(document).on("click", "#add-to-places", function(event) {
 
 //Add onclick for buttons to make an ajax call
 $(document).on("click", ".choice", function(event) {
+
+  $("#gifdiv").empty();
+
   //Retrieve the attribute of data-place for the button pushed
   const place = $(this).attr("data-place");
   const apikey = "&api_key=3bCo19ThIMVPxPyB6WKeiwD05PgMMyNB&limit=10";
@@ -94,6 +97,7 @@ $(document).on("click", ".choice", function(event) {
 //From that data value add to paramenter for giphy to return images
 //Make button to add more items
 $(document).on("click", ".gif",function(event){
+
   console.log("you clicked my")
   
   //Save the data-state currently into a convience variable
